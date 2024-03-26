@@ -15,8 +15,9 @@ interface Props{
 export const Main:React.FC<Props> = ({dataPosts,countLoad,loadPosts,handleClickLoadMore,getPostId}:Props) => {
     
     return(
-    <div className={MainCSS.main}>
-        {
+    <div className={MainCSS.main}>      
+        { 
+          // Navigate обновляем URL 
           <Navigate to={`/${countLoad}`}></Navigate>
         }
         {
