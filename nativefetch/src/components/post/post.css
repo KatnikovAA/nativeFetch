@@ -1,0 +1,32 @@
+.posts{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px seashell solid;
+    font-size: 15px;
+    margin: 20px;
+    padding: 5px;
+    color: white; 
+
+    
+}
+.postsBody{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: row;
+
+    
+}
+
+.postsId{
+    display: flex;
+    flex-direction: row;
+    justify-content:end;
+    align-items: end;
+
+}
+a{ 
+    text-decoration: none;
+}
