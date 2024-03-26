@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState , useEffect } from 'react';
 import AppCss from './App.Module.css';
-// @ts-ignore
 import { Main } from './components/main/Main.tsx';
 import {
   createBrowserRouter,

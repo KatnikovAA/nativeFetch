@@ -1,5 +1,4 @@
 import React from "react";
-// @ts-ignore
 import { Post } from "../post/Post.tsx";
 import { apiPost } from "../../types/apiPost.ts";
 import { Navigate } from "react-router-dom";
