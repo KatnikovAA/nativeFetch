@@ -1,13 +1,13 @@
 import React from 'react';
 import { useState , useEffect } from 'react';
-import './App.css';
+import AppCss from './App.Module.css';
 // @ts-ignore
-import { Main } from './components/main/main.tsx';
+import { Main } from './components/main/Main.tsx';
 import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom'
-import { PostDetail } from './components/postDetail/postDetail.tsx';
+import { PostDetail } from './components/postDetail/PostDetail.tsx';
 import { fstLoadPosts,loadAfterScollPosts,loadByClickPosts } from './const/const.ts';
 import { apiPost } from './types/apiPost.ts';
 
@@ -15,19 +15,19 @@ const App:React.FC = () => {
 
   const [dataPosts,setDataPosts] = useState<apiPost[]>([])
   const [loadPosts,setLoadPosts] = useState<number>(fstLoadPosts)
-  const [countLoad,setCountLoad] = useState<number>(0)
+  const [countLoad,setCountLoad] = useState<number>(1)
   const [dataPostId,setDataPostId] = useState<number>(0)
   const [flgForLoad,setFlgForLoad] = useState<number>(0)
 
   useEffect(()=>{
-
+    //использую для первых 5 прокруток страницы 
     if(countLoad < 6 ){
-      console.log('countLoad < 5')
       handleClickLoadMore()
     }
   },[flgForLoad])
   
   useEffect(()=>{
+    //обнуляю значения State
     setCountLoad(1) 
     setLoadPosts(fstLoadPosts)
     fetch('https://jsonplaceholder.typicode.com/posts/')
@@ -53,7 +53,6 @@ const App:React.FC = () => {
   //скролл высота окна браузера + вертикальная позиция прокрутки окна браузера >= высота html-элемента body
   const handleScroll = ():void => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight){
-      console.log('prev => prev + 1 ')
       setFlgForLoad(prev => prev + 1)
     }
   };
@@ -90,10 +89,8 @@ const App:React.FC = () => {
   ]);
 
     return (
-      <div className="App">
+      <div className={AppCss.App}>
         <RouterProvider router={router}/>
-        <div className='loadMore'>
-    </div>
       </div>
     );
 }

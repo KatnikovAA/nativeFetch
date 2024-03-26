@@ -1,0 +1,11 @@
+.posts{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px seashell solid;
+    font-size: 15px;
+    margin: 20px;
+    padding: 5px;
+    color: white;  
+}

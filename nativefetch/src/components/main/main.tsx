@@ -1,23 +1,22 @@
 import React from "react";
 // @ts-ignore
-import { Post } from "../post/post.tsx";
+import { Post } from "../post/Post.tsx";
 import { apiPost } from "../../types/apiPost.ts";
 import { Navigate } from "react-router-dom";
-import './main.css';
+import MainCSS from './Main.module.css';
 
 interface Props{
   dataPosts:apiPost[],
   countLoad:number,
   loadPosts:number,
-  flgForLoad:boolean,
-  handleClickLoadMore:void,
-  getPostId:void
+  handleClickLoadMore:() => void,
+  getPostId:(value:number) => void
 }
 
 export const Main:React.FC<Props> = ({dataPosts,countLoad,loadPosts,handleClickLoadMore,getPostId}:Props) => {
     
     return(
-    <div className="main">
+    <div className={MainCSS.main}>
         {
           <Navigate to={`/${countLoad}`}></Navigate>
         }
@@ -30,8 +29,8 @@ export const Main:React.FC<Props> = ({dataPosts,countLoad,loadPosts,handleClickL
         
         {
           countLoad >= 6 && countLoad < 10 &&
-            <div className='loadMore'>
-              <button onClick= {() =>{handleClickLoadMore()}}>Загрузить еще</button>
+            <div className={MainCSS.loadMore}>
+              <button className={MainCSS.button} onClick= {() =>{handleClickLoadMore()}}>Загрузить еще</button>
             </div>
         }
 
